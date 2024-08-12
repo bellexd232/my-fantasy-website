@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Webpage</title>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ea0dc804-b617-4f55-b6e9-df92848c80ae/df4zmze-8b8aa9e9-1b6d-463f-9e73-783301525447.png/v1/fill/w_1192,h_670,q_70,strp/the_wizard_tower___fantasy_background_by_luxadesigns_df4zmze-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvZWEwZGM4MDQtYjYxNy00ZjU1LWI2ZTktZGY5Mjg0OGM4MGFlXC9kZjR6bXplLThiOGFhOWU5LTFiNmQtNDYzZi05ZTczLTc4MzMwMTUyNTQ0Ny5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yYAZXDswSn0_vA0FpaPBXq2WLP_eeEUZ3rYPcIwK9xw') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #f0f8ff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        h1 {
+            font-size: 3em;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        p {
+            font-size: 1.5em;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+        button {
+            background-color: #d4af37;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background-color: #b8860b;
+            transform: scale(1.05);
+        }
+        #question {
+            font-size: 1.5em;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            border: 2px solid #d4af37;
+            color: #f0f8ff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .cute-cats {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .cute-cats img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #d4af37;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Fantasy Realm</h1>
+        <p>Discover magical wonders and enchanting secrets!</p>
+        <button id="generate-btn">Random a question</button>
+        <div id="question">Click the button to get a magical question!</div>
+        <div class="cute-cats">
+            <img src="https://as1.ftcdn.net/v2/jpg/05/72/95/80/1000_F_572958019_mxuGjqtzkvfwn3r6ILrLKTQHuyFNBvWi.jpg" alt="Magic Cat 1">
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            "ถ้าคุณเป็นฮีโร่ คุณจะมีพลังอะไร?",
+            "คิดวิธีใหม่ในการใช้สิ่งของในบ้าน",
+            "ถ้าคุณเดินทางข้ามเวลาได้ คุณจะไปที่ไหน?",
+            "คิดสิ่งประดิษฐ์ใหม่ที่ไม่เคยมีมาก่อน",
+            "สร้างเรื่องราวเกี่ยวกับสัตว์ที่มีพลังวิเศษ",
+            "ถ้าคุณสามารถพูดคุยกับสิ่งของได้ สิ่งแรกที่คุณจะพูดคืออะไร?",
+            "คุณจะออกแบบเมืองในอนาคตอย่างไร?",
+            "คิดวิธีสร้างสิ่งที่เป็นมิตรกับสิ่งแวดล้อมจากวัสดุเหลือใช้",
+            "ถ้าคุณเป็นฮีโร่ คุณจะมีพลังอะไร?",
+            "ถ้าคุณสามารถใช้เวทมนตร์ได้ คุณจะเลือกใช้เวทมนตร์ไหน?",
+            "ถ้าคุณมีสัตว์เลี้ยงที่มีพลังพิเศษ มันจะเป็นสัตว์อะไร?",
+            "ถ้าคุณสามารถเดินทางไปยังโลกอื่นได้ คุณจะไปที่ไหน?",
+            "ถ้าคุณมีความสามารถในการอ่านใจ คุณจะใช้พลังนี้อย่างไร?",
+            "ถ้าคุณสามารถพูดคุยกับสิ่งของที่ไม่มีชีวิตได้ คุณจะคุยกับสิ่งไหน?",
+            "ถ้าคุณสามารถเปลี่ยนรูปร่างของตัวเองได้ คุณจะเปลี่ยนเป็นอะไร?",
+            "ถ้าคุณมีพลังในการควบคุมธรรมชาติ คุณจะควบคุมสิ่งใดเป็นอันดับแรก?",
+            "ถ้าคุณสามารถย้อนเวลาได้ คุณจะย้อนกลับไปที่ช่วงไหนในอดีต?",
+            "ถ้าคุณสามารถสร้างพลังงานหรืออาวุธพิเศษได้ คุณจะสร้างอะไร?",
+            "ถ้าคุณมีพลังในการเดินทางข้ามมิติ คุณจะไปที่ไหน?",
+            "ถ้าคุณสามารถเป็นอมตะได้ คุณจะเลือกที่จะเป็นอมตะหรือไม่?",
+            "ถ้าคุณมีพลังในการควบคุมความคิดของผู้อื่น คุณจะใช้พลังนี้เพื่ออะไร?",
+            "ถ้าคุณสามารถเปลี่ยนสภาพอากาศได้ คุณจะเปลี่ยนมันให้เป็นอย่างไร?",
+            "ถ้าคุณมีพลังในการทำให้สิ่งของหรือคนกลับเป็นเด็ก คุณจะทำอย่างไร?",
+            "ถ้าคุณสามารถมีเพื่อนร่วมทางที่เป็นสัตว์วิเศษ คุณจะเลือกสัตว์อะไร?",
+            "ถ้าคุณสามารถสร้างโลกใหม่ได้ คุณจะสร้างโลกแบบไหน?",
+            "ถ้าคุณมีพลังในการเคลื่อนย้ายวัตถุด้วยความคิด คุณจะใช้พลังนี้ทำอะไร?",
+            "ถ้าคุณสามารถเปลี่ยนทิศทางของเวลาหรือเหตุการณ์ คุณจะเปลี่ยนอะไร?",
+            "ถ้าคุณมีพลังในการอ่านและเขียนความฝัน คุณจะใช้พลังนี้อย่างไร?",
+        ];
+
+        const questionElement = document.getElementById('question');
+        const generateBtn = document.getElementById('generate-btn');
+
+        generateBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            questionElement.textContent = questions[randomIndex];
+        });
+    </script>
+</body>
+</html>
